@@ -1,9 +1,13 @@
 function suma(positiveNumber){
-    let total = 0;
-    for(let i = 0 ; i < positiveNumber; i++){
-        total = total + (i+1);
+    if(positiveNumber < 0 || isNaN(positiveNumber)){
+        return "Número no valido"
+    } else {
+        let total = 0;
+        for(let i = 0 ; i < positiveNumber; i++){
+            total = total + (i+1);
+        }
+        return total;
     }
-    return total;
 }
 
 // código de prueba

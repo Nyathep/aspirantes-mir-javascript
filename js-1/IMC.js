@@ -1,5 +1,7 @@
 function bmi(weight, heightDot){
-    return weight / heightDot ** 2; //Nota: usar doble asterisco en vez de Math.pow
+    let resultado;
+    weight === 0 || heightDot === 0 ? resultado = 0 : resultado = weight / heightDot ** 2; //Nota: usar doble asterisco en vez de Math.pow
+    return resultado;
 }
 
 // código de prueba
