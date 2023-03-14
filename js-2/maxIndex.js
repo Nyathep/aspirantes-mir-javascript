@@ -1,5 +1,5 @@
-function maxIndex(numbers){
-    if(numbers.length < 1){
+function maxIndex(numbers) {
+    if (numbers.length < 1) {
         return -1;
     } else {
         let resultIndex = 0;
@@ -7,17 +7,17 @@ function maxIndex(numbers){
         let iteratorOfNotNumbers = 0;
 
         numbers.forEach((element, index) => {
-            if(!isNaN(element)){
-                if(element > lastHigher){
+            if (!isNaN(element)) {
+                if (element > lastHigher) {
                     lastHigher = element;
-                    resultIndex = index;                    
+                    resultIndex = index;
                 }
             } else {
                 iteratorOfNotNumbers++;
             }
         });
 
-        if(iteratorOfNotNumbers === numbers.length){
+        if (iteratorOfNotNumbers === numbers.length) {
             return -1;
         } else {
             return resultIndex;

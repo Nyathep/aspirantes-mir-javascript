@@ -1,31 +1,31 @@
-function max(numbers){
-    if(numbers.length < 1){
+function max(numbers) {
+    if (numbers.length < 1) {
         return undefined;
     } else if (numbers.length === 1) {
-        if(isNaN(numbers[0])){
+        if (isNaN(numbers[0])) {
             return undefined;
-        } else{
+        } else {
             return numbers[0];
         }
-        
+
     } else {
         let result = 0;
         let comparatorOfNotNumbers = 0;
 
         numbers.forEach(element => {
-            if(!isNaN(element)){
-                if(element > result){
+            if (!isNaN(element)) {
+                if (element > result) {
                     result = element;
                 }
             } else {
-                comparatorOfNotNumbers++;                
+                comparatorOfNotNumbers++;
             }
-            
+
         });
 
-        if(comparatorOfNotNumbers === numbers.length){
+        if (comparatorOfNotNumbers === numbers.length) {
             return undefined;
-        } else { 
+        } else {
             return result;
         }
     }

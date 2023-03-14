@@ -1,11 +1,17 @@
-function sum (numbers) {
-    let result = 0;
-    numbers.forEach((element) => {
-        if(!isNaN(element)){
-            result += element
-        }        
-    });
-    return result;
+function sum(numbers) {
+    if (!numbers.length) {
+        return result;
+    } else if (numbers.length === 1) {
+        return numbers[0];
+    } else {
+        let result = 0;
+        numbers.forEach((element) => {
+            if (!isNaN(element)) {
+                result += element
+            }
+        });
+        return result;
+    }
 }
 
 console.log(sum([1, 2, 3])) // 6
