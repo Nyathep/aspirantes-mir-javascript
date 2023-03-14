@@ -1,6 +1,6 @@
 function sum(numbers) {
     if (!numbers.length) {
-        return result;
+        return 0;
     } else if (numbers.length === 1) {
         return numbers[0];
     } else {
@@ -14,6 +14,6 @@ function sum(numbers) {
     }
 }
 
-console.log(sum([1, 2, 3])) // 6
-console.log(sum([10, 8, 12, 5])) // 35
-console.log(sum([])) // 0
+console.log(sum([1, 2, 3])); // 6
+console.log(sum([10, 8, 12, 5])); // 35
+console.log(sum([])); // 0
