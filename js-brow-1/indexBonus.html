@@ -19,12 +19,14 @@
         const input = document.querySelector("#texto");
         const result = document.getElementById("result");
 
+        /*\W = caracteres alfanumericos || g = busqueda global
+           mejor que un trim para quitar espacios.*/
         button.addEventListener('click', function () {
             const resultText = input.value.trim();
-            let inputText = input.value.toLowerCase().replace(/[\W]/g, ''); /*\W = caracteres alfanumericos || g = busqueda global
-            mejor que un trim para quitar espacios.*/
+            let inputText = input.value.toLowerCase().replace(/[\W]/g, '');
 
-            let compareText = inputText.split('').reverse().join(''); //separar chars en un array, revertirlo y volverlo a juntar en un string
+            //separar chars en un array, revertirlo y volverlo a juntar en un string
+            let compareText = inputText.split('').reverse().join('');
 
             if (compareText === inputText) {
                 result.textContent = "'" + resultText + "' es palindromo.";

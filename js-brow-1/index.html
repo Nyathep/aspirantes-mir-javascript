@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayúsculas</title>
 </head>
+
 <body>
     <label for="textToTransform">Escriba algo:</label>
     <input type="text" id="textToTransform">
@@ -17,16 +19,17 @@
         const result = document.querySelector("#result");
         const resultUpper = document.getElementById("resultUpper");
         const button = document.querySelector(".btn");
-                
-        input.addEventListener('input', function(){
-            const normalText = input.value;
+
+        input.addEventListener('input', function () {
+            const normalText = input.value.toUpperCase();
             result.textContent = normalText;
         });
 
-        button.addEventListener('click', function(){
+        button.addEventListener('click', function () {
             const upperText = input.value.toUpperCase();
             resultUpper.textContent = upperText;
         });
     </script>
 </body>
+
 </html>
