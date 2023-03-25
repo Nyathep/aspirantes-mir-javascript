@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <form>
+        <label for="name">Nombre: </label>
+        <input type="text" id="name" name="name" placeholder="Ingrese su nombre">
+        <label for="e-mail">Correo: </label>
+        <input type="email" id="e-mail" name="e-mail" placeholder="Ingrese su correo electronico">
+        <button type="submit">Guardar</button>
+    </form>
+    <section style="margin-top: 5px;">
+        <div>
+            <div style="display: flex; align-items: center; margin-bottom: 1px;">
+                <label for="name-show" id="label-name"></label>
+                <p class="data-show" id="name-show" name="name-show" style="margin-left: 5px; width: fit-content"></p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="email-show" id="label-email"></label>
+                <p class="data-show" id="email-show" style="margin-left: 5px;"></p>
+            </div>
+        </div>
+        <button type="submit" id="delete-storage">Borrar</button>
+    </section>
+    <script>
+        let compro = 0;
+        const form = document.querySelector('form');
+        const inputName = document.querySelector('#name');
+        const inputEmail = document.querySelector('#e-mail');
+        const labelName = document.querySelector('#label-name');
+        const nameShowSection = document.querySelector('#name-show');
+        const labelEmail = document.querySelector('#label-email')
+        const emailShowSection = document.querySelector('#email-show');
+        const buttonDelete = document.querySelector('#delete-storage');
+
+        
+
+        form.addEventListener('submit', (event) =>{
+            event.preventDefault();
+            if(!inputName.value || !inputEmail.value){
+                if(!inputName.value && !inputEmail.value){
+                    inputName.placeholder = 'Falta agregar nombre';
+                    inputEmail.placeholder = 'Falta agregar email';
+                } else if (!inputEmail.value) {
+                    inputEmail.placeholder = 'Falta agregar email';
+                } else {
+                    inputName.placeholder = 'Falta agregar nombre';                    
+                }
+            } else {
+                inputName.placeholder = 'Ingrese su nombre';
+                inputEmail.placeholder = 'Ingrese su correo electronico';
+                localStorage.setItem('name', inputName.value);
+                localStorage.setItem('email', inputEmail.value);
+                inputName.value = "";
+                inputEmail.value = "";
+                showData();
+            }          
+            
+        });        
+
+        function showData() {
+            if(!localStorage.getItem('name')){
+                labelName.textContent = 'No hay datos guardados';
+                nameShowSection.textContent = '';
+                labelEmail.textContent = '';
+                emailShowSection.textContent = '';
+            } else {
+                labelName.textContent = 'Nombre guardado:   ';
+                nameShowSection.textContent = localStorage.getItem('name');
+                labelEmail.textContent = 'Correo guardado:  ';
+                emailShowSection.textContent = localStorage.getItem('email');
+            }
+        }
+
+        buttonDelete.addEventListener('click', () => {
+            if(!localStorage.getItem('name')){
+                labelName.textContent = 'No hay nada que borrar';
+            } else {
+                localStorage.clear();
+                showData();
+            }            
+        });
+
+        showData();
+    </script>
+</body>
+
+</html>
